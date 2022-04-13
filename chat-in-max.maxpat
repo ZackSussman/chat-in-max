@@ -40,6 +40,18 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-22",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 456.0, 98.0, 42.0, 22.0 ],
+					"text" : "debug"
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-19",
 					"maxclass" : "newobj",
 					"numinlets" : 1,
@@ -69,8 +81,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 322.0, 14.0, 67.0, 22.0 ],
-					"text" : "that's right!"
+					"patching_rect" : [ 322.0, 14.0, 121.0, 22.0 ],
+					"text" : "everyone is watching"
 				}
 
 			}
@@ -101,13 +113,12 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-9",
-					"linecount" : 4,
 					"maxclass" : "message",
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 220.0, 294.0, 96.0, 62.0 ],
-					"text" : "\"messages: \" \"ate, ate the cake, that's right!\""
+					"patching_rect" : [ 220.0, 294.0, 96.0, 22.0 ],
+					"text" : "\"messages: \" "
 				}
 
 			}
@@ -219,6 +230,13 @@
 				"patchline" : 				{
 					"destination" : [ "obj-18", 0 ],
 					"source" : [ "obj-19", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-1", 0 ],
+					"source" : [ "obj-22", 0 ]
 				}
 
 			}

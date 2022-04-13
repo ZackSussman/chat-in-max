@@ -18,27 +18,42 @@ const firebaseConfig = {
   measurementId: "G-FTPL7EZLFW"
 };
 
+var debug = false
+
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = firestore.getFirestore(app);
 
 const maxAPI = require("max-api");
 
+maxAPI.addHandler("debug", _ => {
+  debug = !debug;
+});
+
+
 maxAPI.addHandler("send", async msg => {
-  maxAPI.post("sending " + msg);
+  if (debug) {
+    maxAPI.post("sending " + msg);
+  }
   try {
     const docRef = await firestore.addDoc(firestore.collection(db, "messages"), {
       m: msg,
       date: new Date()
     });
-    maxAPI.post("Document written with ID: ", docRef.id);
+    if (debug) {
+      maxAPI.post("Document written with ID: ", docRef.id);
+    }
   } catch (e) {
-    maxAPI.post("Error adding document: ", e);
+    if (debug) {
+      maxAPI.post("Error adding document: ", e);
+    }
   }
 });
 
 maxAPI.addHandler("wipe", async _ => {
-  maxAPI.post("deleting fields");
+  if (debug) {
+    maxAPI.post("deleting fields");
+  }
   const querySnapshot = await firestore.getDocs(firestore.collection(db, "messages"));
     querySnapshot.forEach( async doc => {
       await firestore.deleteDoc(firestore.doc(db, "messages", doc.id));
