@@ -1,0 +1,1 @@
+{"name":"chat-in-max","type":"module","version":"0.0.1","description":"CHAT IN MAX","dependencies":{"firebase":"^9.6.10","semver":"^7.3.7"}}
